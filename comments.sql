@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 08 2020 г., 11:14
+-- Время создания: Авг 08 2020 г., 11:27
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.3.9
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- База данных: `comments`
 --
+CREATE DATABASE IF NOT EXISTS `comments` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `comments`;
 
 -- --------------------------------------------------------
 
@@ -29,11 +31,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
-  `id` int(111) NOT NULL,
-  `parent_id` int(111) NOT NULL DEFAULT 0,
-  `topic_id` int(111) NOT NULL,
-  `body` varchar(10000) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp()
+                            `id` int(111) NOT NULL,
+                            `parent_id` int(111) NOT NULL DEFAULT 0,
+                            `topic_id` int(111) NOT NULL,
+                            `body` varchar(10000) DEFAULT NULL,
+                            `create_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -44,7 +46,7 @@ CREATE TABLE `comments` (
 -- Индексы таблицы `comments`
 --
 ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -54,9 +56,4 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+    MODIFY `id` int(111) NOT NULL AUTO_INCREMENT;
